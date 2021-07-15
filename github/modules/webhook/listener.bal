@@ -8,11 +8,20 @@ public const string HUB = "https://api.github.com/hub";
 # GitHub REST API base url
 public const string GITHUB_REST_API_BASE_URL = "https://api.github.com";
 
+# Listener for GitHub connector
+# 
+@display {label: "GitHub Listener"}
 public class Listener {
     private websub:Listener subscriberListener;
     private websub:SubscriberService? subscriberService;
     private string? accessToken;
 
+
+    # Initializes GitHub connector listener.
+    #
+    # + listenTo - Port number or `http:Listener`
+    # + config - Configurations for configure the underlying HTTP listener of the WebSub listener.
+    # + return - An error on failure of initialization or else `()`
     public isolated function init(int|http:Listener listenTo, websub:ListenerConfiguration? config = ()) returns error? {
         websub:ListenerConfiguration subscriberListenerConfig = {};
         if (config is  websub:ListenerConfiguration) {

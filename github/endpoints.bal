@@ -26,6 +26,10 @@ public client class Client {
     http:Client githubGraphQlClient;
     map<string> headers;
 
+    # Client initialization.
+    #
+    # + config - Configurations required to initialize the `Client`
+    # + return -  Error at failure of client initialization
     public isolated function init(Configuration config) returns error? {
         self.accessToken = config.accessToken;
         self.githubGraphQlClient = check new(GIT_GRAPHQL_API_URL, config.clientConfig);

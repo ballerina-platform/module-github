@@ -817,6 +817,7 @@ public type UserList record {
 };
 
 # Represents the Github Client Connector Endpoint configuration.
+# 
 # + clientConfig - HTTP client endpoint configuration
 # + accessToken - The access token of the Github 
 @display{label: "Connection Config"}
